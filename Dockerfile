@@ -16,6 +16,8 @@ ENV PATH=${PATH}:${SONAR_SCANNER_HOME}/bin:${NODEJS_HOME}/bin
 
 # set up local envs in order to allow for special chars (non-asci) in filenames
 ENV LC_ALL="en_US.UTF-8"
+ENV JAVA_OPTS="-Dsun.jnu.encoding=UTF-8 -Dfile.encoding=UTF-8"
+
 
 WORKDIR /opt
 
