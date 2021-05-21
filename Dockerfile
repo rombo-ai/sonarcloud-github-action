@@ -14,8 +14,12 @@ ARG NODEJS_HOME=/opt/nodejs
 
 ENV PATH=${PATH}:${SONAR_SCANNER_HOME}/bin:${NODEJS_HOME}/bin
 
+RUN apt-get update && apt-get install -y locales
+RUN locale-gen "en_US.UTF-8"
+RUN update-locale LC_ALL="en_US.UTF-8"
+
 # set up local envs in order to allow for special chars (non-asci) in filenames
-ENV LC_ALL=C
+ENV LC_ALL="en_US.UTF-8"
 
 WORKDIR /opt
 
